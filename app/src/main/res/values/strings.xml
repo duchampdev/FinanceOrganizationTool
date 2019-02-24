@@ -1,0 +1,135 @@
+<!--
+  ~ Copyright (c) 2019 duchampdev.
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="app_name">FinanceOrganizationTool</string>
+    <string name="license_text_mpandroidchart">
+        <![CDATA[
+        <b>MPAndroidChart</b>
+        <br/>
+        <i>Copyright 2018 Philipp Jahoda</i>
+        <br/>
+        Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
+        <br/>
+        Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+        ]]>
+    </string>
+    <string name="license_text_app">
+        <![CDATA[
+        <b>FinanceOrganizationTool</b>
+        <br/>
+        <i>Copyright 2019 duchampdev</i>
+        <br/>
+        This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+        <br/>
+        This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+        <br/>
+        You should have received a copy of the GNU General Public License along with this program.  If not, see https://www.gnu.org/licenses/.
+        ]]>
+    </string>
+    <string name="dataprotection_content">
+        <![CDATA[
+        <b>FinanceOrganizationTool</b> erhebt, speichert und verarbeitet ausschließlich die von Ihnen eingegebenen Daten. Diese werden ausschließlich lokal auf Ihrem Gerät gespeichert und verarbeitet. Eine Übertragung etwaiger Daten über das Internet findet nicht statt, dies kann leicht anhand der nicht eingeforderten Berechtigung für Internetzugang überprüft werden. Die Speicherung der Daten erfolgt im Datenverzeichnis der App, welches von anderen Apps inklusive Datei-Browser im Regelfall nicht lesbar ist. Eine Ausnahme bilden sog. "gerootete" Geräte: Bei diesen kann anderen Apps oder einer Debugging-Schnittstelle am Computer der Zugriff auf Appdaten gewährt werden. Für die Sicherheit Ihrer Daten vor fremdem Zugriff, z. B. durch sogenanntes Shoulder-Surfing, Fehler im Android-System oder durch ein "gerootetes" Gerät wird ausdrücklich keine Verantwortung übernommen.
+        ]]>
+    </string>
+    <string name="pref_key_categoryorder">catorder</string>
+    <string name="pref_key_statsrange">statsrange</string>
+
+
+    <!-- general -->
+    <string name="income">Einnahme</string>
+    <string name="expense">Ausgabe</string>
+    <string name="income_plural">Einnahmen</string>
+    <string name="expense_plural">Ausgaben</string>
+    <string name="category">Kategorie</string>
+    <string name="diagram">Diagramm</string>
+
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+
+    <string name="save">Speichern</string>
+    <string name="abort">Abbrechen</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="rename">Umbenennen</string>
+    <string name="delete">Löschen</string>
+
+    <string name="close">Schliessen</string>
+    <string name="licenses">Lizenzen</string>
+    <string name="about">Über</string>
+    <string name="settings">Einstellungen</string>
+    <string name="dataprotection">Datenschutz</string>
+
+    <!-- navigation -->
+    <string name="nav_history">Finanzhistorie</string>
+    <string name="nav_stats">Statistiken</string>
+
+    <!-- category management -->
+    <string name="catmgmt_activity_title">Kategorienverwaltung</string>
+    <string name="catmgmt_enter_name">Bitte Name eingeben!</string>
+    <string name="catmgmt_choose_direction">Bitte Richtung auswählen!</string>
+    <string name="catmgmt_category_added">Kategorie hinzugefügt</string>
+    <string name="catmgmt_add_failed">Hinzufügen fehlgeschlagen! Duplikat?"</string>
+    <string name="catmgmt_rename_category">Kategorie umbenennen</string>
+    <string name="catmgmt_category_renamed">Kategorie umbenannt!</string>
+    <string name="catmgmt_really_delete">Kategorie löschen?</string>
+    <string name="catmgmt_really_delete_explanation">Auch alle zugehörigen Transaktionen werden unwiderruflich gelöscht!</string>
+    <string name="catmgmt_category_deleted">Kategorie gelöscht</string>
+    <string name="catmgmt_add_category">Kategorie hinzufügen</string>
+    <string name="catmgmt_save_category">Kategorie speichern</string>
+    <string name="catmgmt_label_name">Name:</string>
+    <string name="catmgmt_label_direction">Richtung:</string>
+    <string name="catmgmt_hint_name">Name der Kategorie</string>
+
+    <!-- dashboard -->
+    <string name="dashboard_transaction_menu">Transaktionsmenü</string>
+    <string name="dashboard_transaction_really_delete">Transaktion löschen?</string>
+    <string name="dashboard_transaction_deleted">Transaktion gelöscht</string>
+
+    <!-- stats -->
+    <string name="stats_startdate">Startdatum</string>
+    <string name="stats_enddate">Enddatum</string>
+    <string name="stats_no_data">Keine Daten vorhanden!</string>
+    <string name="stats_label_from">von:</string>
+    <string name="stats_label_until">bis:</string>
+    <string name="stats_label_incoming">eingehend:</string>
+    <string name="stats_label_outgoing">ausgehend:</string>
+    <string name="stats_label_sum_incoming">Summe eingehend:</string>
+    <string name="stats_label_sum_outgoing">Summe ausgehend:</string>
+    <string name="stats_label_sum_both">Summe insgesamt:</string>
+
+    <!-- transaction dialog -->
+    <string name="tdialog_add_transaction">Transaktion hinzufügen</string>
+    <string name="tdialog_edit_transaction">Transaktion bearbeiten</string>
+    <string name="tdialog_enter_valid_amount">Bitte gültigen Betrag eingeben!</string>
+    <string name="tdialog_secondparty_missing">Empfänger/Quelle fehlt</string>
+    <string name="tdialog_amount_missing">Betrag fehlt</string>
+    <string name="tdialog_category_missing">Kategorie fehlt</string>
+    <string name="tdialog_label_secondparty">Empfänger/Quelle:</string>
+    <string name="tdialog_label_amount">Betrag:</string>
+    <string name="tdialog_label_title">Titel (optional):</string>
+    <string name="tdialog_label_date">Datum:</string>
+    <string name="tdialog_label_category">Kategorie:</string>
+
+    <!-- settings -->
+    <string name="settings_header_general">Allgemein</string>
+    <string name="settings_catorder_title">Kategoriesortierung</string>
+    <string name="settings_catorder_summary_on">Kategorien nach letzter Nutzung sortieren</string>
+    <string name="settings_catorder_summary_off">Kategorien alphabetisch sortieren</string>
+    <string name="settings_statsrange_title">Auto-Zeitintervall Statistiken</string>
+    <string name="settings_statsrange_summary_on">autom. 1 Monat falls Beginn am 01.</string>
+    <string name="settings_statsrange_summary_off">Anfang/Ende unabhängig setzen</string>
+</resources>

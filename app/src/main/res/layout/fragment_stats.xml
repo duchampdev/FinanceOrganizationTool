@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 duchampdev.
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/stats_label_from" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/stats_label_until" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/stats_from"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/stats_until"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingEnd="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:text="@string/stats_label_incoming"
+                android:textAllCaps="true" />
+
+            <ListView
+                android:id="@+id/stats_in_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingStart="4dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:text="@string/stats_label_outgoing"
+                android:textAllCaps="true" />
+
+            <ListView
+                android:id="@+id/stats_out_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:columnCount="3"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:rowCount="3">
+
+
+        <TextView android:text="@string/stats_label_sum_incoming" />
+
+        <TextView android:text="@string/stats_label_sum_outgoing" />
+
+        <TextView android:text="@string/stats_label_sum_both" />
+
+        <EditText
+            android:id="@+id/stats_sum_in"
+            android:editable="false"
+            android:focusable="false"
+            android:gravity="end"
+            android:layout_gravity="fill_horizontal"
+            android:textColor="?attr/fot_green" />
+
+        <EditText
+            android:id="@+id/stats_sum_out"
+            android:editable="false"
+            android:focusable="false"
+            android:gravity="end"
+            android:layout_gravity="fill_horizontal"
+            android:textColor="?attr/fot_red" />
+
+        <EditText
+            android:id="@+id/stats_sum_total"
+            android:editable="false"
+            android:focusable="false"
+            android:gravity="end"
+            android:layout_gravity="fill_horizontal" />
+
+        <Button
+            android:id="@+id/stats_show_pie_in"
+            android:text="@string/diagram"/>
+
+        <Button
+            android:id="@+id/stats_show_pie_out"
+            android:text="@string/diagram"/>
+    </GridLayout>
+
+
+</LinearLayout>

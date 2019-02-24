@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 duchampdev.
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".frontend.MainActivity">
+
+    <item android:id="@+id/main_catman"
+        android:icon="@drawable/baseline_category_24"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="@string/catmgmt_activity_title" />
+
+    <item android:id="@+id/main_legal"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="@string/licenses" />
+
+    <item android:id="@+id/main_about"
+          android:orderInCategory="102"
+          app:showAsAction="never"
+          android:title="@string/about" />
+
+    <item android:id="@+id/main_dataprotection"
+          android:orderInCategory="103"
+          app:showAsAction="never"
+          android:title="@string/dataprotection" />
+
+    <item android:id="@+id/main_settings"
+          android:orderInCategory="104"
+          app:showAsAction="never"
+          android:title="@string/settings" />
+</menu>

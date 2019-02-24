@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 duchampdev.
+  ~
+  ~  This program is free software: you can redistribute it and/or modify
+  ~  it under the terms of the GNU General Public License as published by
+  ~  the Free Software Foundation, either version 3 of the License, or
+  ~  (at your option) any later version.
+  ~
+  ~  This program is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:context="com.github.duchampdev.android.fot.frontend.CategoryActivity">
+
+
+
+    <ListView
+            android:id="@+id/category_list"
+            android:scrollbarStyle="outsideInset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:clickable="false"
+            android:longClickable="true" />
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/catmgmt_add_category"
+                android:textSize="24sp"/>
+
+        <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:orientation="vertical"
+                android:rowCount="3">
+
+            <TextView android:text="@string/catmgmt_label_name"/>
+            <TextView android:text="@string/catmgmt_label_direction"/>
+
+            <Button
+                android:id="@+id/category_new_add"
+                android:layout_columnSpan="2"
+                android:layout_width="match_parent"
+                android:onClick="addNewCategory"
+                android:text="@string/catmgmt_save_category"/>
+
+            <EditText
+                android:id="@+id/category_new_name"
+                android:hint="@string/catmgmt_hint_name"
+                android:inputType="text"
+                android:layout_gravity="fill_horizontal"/>
+
+            <RadioGroup
+                android:id="@+id/category_direction_radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:orientation="horizontal">
+
+                <RadioButton
+                        android:id="@+id/category_new_direction_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/income" />
+
+                <RadioButton
+                        android:id="@+id/category_new_direction_out"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/expense" />
+
+            </RadioGroup>
+        </GridLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
