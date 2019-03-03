@@ -133,4 +133,7 @@
     <string name="settings_statsrange_title">auto-time interval for stats</string>
     <string name="settings_statsrange_summary_on">autom. 1 month if start date set to 01.</string>
     <string name="settings_statsrange_summary_off">set start/end date independently</string>
+    <string name="settings_nightmode_title">night mode</string>
+    <string name="settings_nightmode_changed_restart_needed">The changed nightmode settings\ncome into effect after app restart.</string>
+
 </resources>

@@ -31,4 +31,11 @@
         android:summaryOff="@string/settings_statsrange_summary_off"
         android:defaultValue="true" />
 
+    <ListPreference
+        android:key="@string/pref_key_nightmode"
+        android:title="@string/settings_nightmode_title"
+        android:entries="@array/settings_nightmode_entries"
+        android:entryValues="@array/settings_nightmode_entry_vals"
+        android:defaultValue="auto"/>
+
 </PreferenceScreen>

@@ -32,5 +32,17 @@
         <item>November</item>
         <item>Dezember</item>
     </string-array>
+    
+    <string-array name="settings_nightmode_entries">
+        <item>automatisch</item>
+        <item>immer</item>
+        <item>nie</item>
+    </string-array>
+
+    <string-array name="settings_nightmode_entry_vals">
+        <item>auto</item>
+        <item>always</item>
+        <item>never</item>
+    </string-array>
 
 </resources>

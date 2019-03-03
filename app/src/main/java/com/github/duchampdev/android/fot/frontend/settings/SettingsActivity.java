@@ -20,10 +20,12 @@ package com.github.duchampdev.android.fot.frontend.settings;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.*;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
+import android.widget.Toast;
 import com.github.duchampdev.android.fot.R;
 
 import java.util.List;
@@ -37,7 +39,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
      */
-    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = (preference, value) -> true;
+    private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = (preference, newValue) -> {
+        if(preference instanceof ListPreference) preference.setSummary((String) newValue);
+        return true;
+    };
 
     private static void bindPreferenceSummaryToValue(Preference preference) {
         preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
@@ -91,6 +96,11 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             setHasOptionsMenu(true);
             bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_categoryorder)));
             bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_statsrange)));
+            bindPreferenceSummaryToValue(findPreference(getResources().getString(R.string.pref_key_nightmode)));
+            findPreference(getResources().getString(R.string.pref_key_nightmode)).setOnPreferenceChangeListener((preference, newValue) -> {
+                Toast.makeText(getActivity().getApplicationContext(), preference.getContext().getResources().getString(R.string.settings_nightmode_changed_restart_needed), Toast.LENGTH_LONG). show();
+                return true;
+            });
         }
     }
 }

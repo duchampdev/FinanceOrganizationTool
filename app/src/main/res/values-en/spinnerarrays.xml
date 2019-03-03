@@ -33,4 +33,10 @@
         <item>december</item>
     </string-array>
 
+    <string-array name="settings_nightmode_entries">
+        <item>automatically</item>
+        <item>always</item>
+        <item>never</item>
+    </string-array>
+
 </resources>

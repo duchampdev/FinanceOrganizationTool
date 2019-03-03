@@ -18,9 +18,12 @@
 package com.github.duchampdev.android.fot.frontend;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -86,6 +89,16 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setSelectedItemId(R.id.navigation_dashboard);
         activeMenuItemId = R.id.navigation_dashboard;
+
+        String[] possibleValues = getResources().getStringArray(R.array.settings_nightmode_entry_vals);
+        String nightModePrefValue = PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(R.string.pref_key_nightmode), possibleValues[0]);
+        if(nightModePrefValue.equals(possibleValues[0])) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+        } else if(nightModePrefValue.equals(possibleValues[1])) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if(nightModePrefValue.equals(possibleValues[2])) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @Override

@@ -51,6 +51,7 @@
     </string>
     <string name="pref_key_categoryorder">catorder</string>
     <string name="pref_key_statsrange">statsrange</string>
+    <string name="pref_key_nightmode">nightmode</string>
 
 
     <!-- general -->
@@ -135,4 +136,6 @@
     <string name="settings_statsrange_title">Auto-Zeitintervall Statistiken</string>
     <string name="settings_statsrange_summary_on">autom. 1 Monat falls Beginn am 01.</string>
     <string name="settings_statsrange_summary_off">Anfang/Ende unabhängig setzen</string>
+    <string name="settings_nightmode_title">Nachtmodus</string>
+    <string name="settings_nightmode_changed_restart_needed">Die Änderung wird nach\neinem App-Neustart aktiv.</string>
 </resources>
