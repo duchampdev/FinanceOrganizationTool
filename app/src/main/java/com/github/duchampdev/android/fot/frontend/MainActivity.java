@@ -18,9 +18,7 @@
 package com.github.duchampdev.android.fot.frontend;
 
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,10 +39,6 @@ import com.github.duchampdev.android.fot.frontend.settings.SettingsActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    static {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
-    }
 
     private int activeMenuItemId = Integer.MAX_VALUE;
     private Fragment activeFragment;
