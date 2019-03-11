@@ -91,7 +91,7 @@ public class CategoryActivity extends AppCompatActivity {
                 // all valid, persist
                 String name = newCategoryName.getText().toString();
                 int direction = newCategoryIncoming.isChecked() ? Category.INCOMING : Category.OUTGOING;
-                if (dbInstance.insertOrUpdate(new Category(name, direction))) {
+                if (dbInstance.insertOrUpdate(new Category(name, direction)) != FinanceOrgaToolDB.INSERT_ERROR) { // only insertion possible here
                     // restore old input state
                     newCategoryName.setText("");
                     newCategoryDirectionRadioGroup.clearCheck();

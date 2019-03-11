@@ -43,6 +43,9 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
     private static final String TABLE_CATEGORIES = "categories";
     private static final String TABLE_SECONDPARTY_INDEX = "secondpartyindex";
 
+    public static final int INSERT_ERROR = -1;
+    public static final int UPDATE_SUCCESS = 1;
+
     private static final String CREATE_TABLE_TRANSACTIONS = "CREATE TABLE IF NOT EXISTS transactions (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "secondparty TEXT, " +
@@ -114,9 +117,9 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertOrUpdate(TransactionItem item) {
-        boolean opSuccess = _insertOrUpdate(item);
-        if(opSuccess) {
+    public long insertOrUpdate(TransactionItem item) {
+        long opSuccess = _insertOrUpdate(item);
+        if(opSuccess > 0) {
             Category c = item.getCategory();
             c.setLastUsed(System.currentTimeMillis());
             insertOrUpdate(c);
@@ -124,7 +127,7 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
         return opSuccess;
     }
 
-    private boolean _insertOrUpdate(TransactionItem item) {
+    private long _insertOrUpdate(TransactionItem item) {
         openDB();
         ContentValues cv = new ContentValues();
         cv.put("secondparty", item.getSecondParty());
@@ -134,33 +137,33 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
         cv.put("date", item.getDate().getTime());
         if(item.getId() == TransactionItem.NOID) {
             for(DbFinTransactionEventCallbacks listener : listeners) listener.transactionInserted(item);
-            return db.insertOrThrow(TABLE_TRANSACTIONS, null, cv) != -1;
+            return db.insertOrThrow(TABLE_TRANSACTIONS, null, cv);
         } else {
             TransactionItem itemOld = fetchTransactionById(item.getId());
             for(DbFinTransactionEventCallbacks listener : listeners) listener.transactionUpdated(item, itemOld);
-            return db.update(TABLE_TRANSACTIONS, cv, "id=?", new String[]{item.getId() + ""}) == 1;
+            return db.update(TABLE_TRANSACTIONS, cv, "id=?", new String[]{item.getId() + ""});
         }
     }
 
-    public boolean insertOrUpdate(Category category) {
+    public long insertOrUpdate(Category category) {
         openDB();
         ContentValues cv = new ContentValues();
         cv.put("name", category.getName());
         cv.put("direction", category.getDirection());
         cv.put("lastUsed", category.getLastUsed());
-        boolean success;
+        long result;
         if(category.getId() == Category.NOID) {
-            // check if category already exists (if so, abort without side effects
+            // check if category already exists (if so, abort without side effects)
             for(Category predicate : categoriesCache.values()) {
-                if(predicate.getName().equals(category.getName()) && predicate.getDirection() == category.getDirection()) return false;
+                if(predicate.getName().equals(category.getName()) && predicate.getDirection() == category.getDirection()) return INSERT_ERROR;
             }
             // insert
-            success = db.insertOrThrow(TABLE_CATEGORIES, null, cv) != -1;
+            result = db.insertOrThrow(TABLE_CATEGORIES, null, cv);
         } else {
-            success = db.update(TABLE_CATEGORIES, cv, "id=?", new String[]{category.getId() + ""}) == 1;
+            result = db.update(TABLE_CATEGORIES, cv, "id=?", new String[]{category.getId() + ""});
         }
         refreshCategoriesCache();
-        return success;
+        return result;
     }
 
     public boolean remove(TransactionItem item) {
