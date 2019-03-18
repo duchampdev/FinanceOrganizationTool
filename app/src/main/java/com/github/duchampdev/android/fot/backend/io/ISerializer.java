@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.duchampdev.android.fot.util.io;
+package com.github.duchampdev.android.fot.backend.io;
 
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB;
 import com.github.duchampdev.android.fot.bdo.Category;
