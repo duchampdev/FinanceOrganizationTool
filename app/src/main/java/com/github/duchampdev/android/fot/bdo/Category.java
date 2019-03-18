@@ -40,8 +40,12 @@ public class Category implements Serializable {
         this.lastUsed = lastUsed;
     }
 
+    public Category(String name, int direction, long lastUsed) {
+        this(NOID, name, direction, lastUsed);
+    }
+
     public Category(String name, int direction) {
-        this(NOID, name, direction, 0);
+        this(name, direction, 0);
     }
 
 
