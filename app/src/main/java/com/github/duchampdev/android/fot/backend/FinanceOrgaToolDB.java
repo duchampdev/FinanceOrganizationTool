@@ -203,6 +203,10 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
         return categories;
     }
 
+    public Category getCategoryById(long id) {
+        return categoriesCache.get(id);
+    }
+
     private void refreshCategoriesCache() {
         if(!isOpeningDb) {
             openDB(); // might lead to double refreshCategoriesCache call
@@ -363,6 +367,14 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
         }
         initDb.endTransaction();
     }
+
+
+    public void clear() {
+        db.execSQL("DELETE FROM " + TABLE_SECONDPARTY_INDEX);
+        db.execSQL("DELETE FROM " + TABLE_TRANSACTIONS);
+        db.execSQL("DELETE FROM " + TABLE_CATEGORIES);
+    }
+
 
     interface DbFinTransactionEventCallbacks {
         void transactionInserted(TransactionItem transaction);
