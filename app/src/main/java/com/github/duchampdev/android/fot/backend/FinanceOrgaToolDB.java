@@ -28,7 +28,10 @@ import android.util.Pair;
 import com.github.duchampdev.android.fot.R;
 import com.github.duchampdev.android.fot.bdo.TransactionItem;
 import com.github.duchampdev.android.fot.bdo.Category;
+import com.github.duchampdev.android.fot.backend.io.ISerializer;
+import com.github.duchampdev.android.fot.backend.io.SimpleSerializer;
 
+import java.io.File;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,6 +79,7 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
     private SQLiteDatabase db;
     private final Map<Long, Category> categoriesCache = new HashMap<>();
     private final List<DbFinTransactionEventCallbacks> listeners = new ArrayList<>();
+    private final ISerializer serializer;
 
     private Context context;
 
@@ -92,6 +96,7 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
     private FinanceOrgaToolDB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
+        this.serializer = SimpleSerializer.getInstance();
     }
 
     /**
@@ -368,6 +373,14 @@ public class FinanceOrgaToolDB extends SQLiteOpenHelper {
         initDb.endTransaction();
     }
 
+
+    public boolean exportToFile(File target) {
+        return serializer.export(target, fetchTransactionsFromCursor(db.rawQuery("SELECT * FROM transactions", null)), getCategories());
+    }
+
+    public boolean importFromFile(File source) {
+        return serializer.importFile(source, this);
+    }
 
     public void clear() {
         db.execSQL("DELETE FROM " + TABLE_SECONDPARTY_INDEX);
