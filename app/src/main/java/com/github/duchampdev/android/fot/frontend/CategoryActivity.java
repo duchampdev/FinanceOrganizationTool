@@ -37,7 +37,7 @@ public class CategoryActivity extends AppCompatActivity {
     private FinanceOrgaToolDB dbInstance;
 
     private ListView existingCategoriesList;
-    private CategoryAdapter existingCatgoriesAdapter;
+    private CategoryAdapter existingCategoriesAdapter;
 
     private EditText newCategoryName;
     private RadioButton newCategoryIncoming;
@@ -61,8 +61,8 @@ public class CategoryActivity extends AppCompatActivity {
         addNewCategory = findViewById(R.id.category_new_add);
         newCategoryDirectionRadioGroup = findViewById(R.id.category_direction_radiogroup);
 
-        existingCatgoriesAdapter = new CategoryAdapter(this, R.layout.category_item, new ArrayList<>());
-        existingCategoriesList.setAdapter(existingCatgoriesAdapter);
+        existingCategoriesAdapter = new CategoryAdapter(this, R.layout.category_item, new ArrayList<>());
+        existingCategoriesList.setAdapter(existingCategoriesAdapter);
         reloadCategories();
 
         existingCategoriesList.setOnItemLongClickListener(this::showCategoryMenu);
@@ -72,9 +72,9 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void reloadCategories() {
         List<Category> categories = dbInstance.getCategories();
-        existingCatgoriesAdapter.clear();
-        existingCatgoriesAdapter.addAll(categories);
-        existingCatgoriesAdapter.notifyDataSetChanged();
+        existingCategoriesAdapter.clear();
+        existingCategoriesAdapter.addAll(categories);
+        existingCategoriesAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -115,7 +115,7 @@ public class CategoryActivity extends AppCompatActivity {
      * @return
      */
     private boolean showCategoryMenu(AdapterView<?> parent, View view, int position, long id) {
-        final Category selected = existingCatgoriesAdapter.getItem(position);
+        final Category selected = existingCategoriesAdapter.getItem(position);
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle(selected.getName());
         dialogBuilder.setNeutralButton(getResources().getString(R.string.abort), (dialog, which) -> {});
