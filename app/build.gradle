@@ -24,8 +24,8 @@ android {
         applicationId "com.github.duchampdev.android.fot"
         minSdkVersion 24
         targetSdkVersion 27
-        versionCode 26
-        versionName "2.5.0"
+        versionCode 27
+        versionName "2.5.1"
     }
     buildTypes {
         release {
