@@ -199,7 +199,7 @@ public class StatsFragment extends Fragment {
         PieData pieData = new PieData(piePreData);
         pieData.setValueTextSize(16);
         pieChart.setUsePercentValues(true);
-        pieData.setValueFormatter(new PercentFormatter(pieChart));
+        pieData.setValueFormatter(new PercentFormatter(pieChart, false));
 
         if (!entries.isEmpty()) pieChart.setData(pieData);
         pieChart.getDescription().setText("");
