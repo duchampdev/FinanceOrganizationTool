@@ -197,8 +197,9 @@ public class StatsFragment extends Fragment {
         piePreData.setColors(Util.getStatsDiagramColors(rawData.size()));
 
         PieData pieData = new PieData(piePreData);
-        pieData.setValueFormatter(new PercentFormatter());
         pieData.setValueTextSize(16);
+        pieChart.setUsePercentValues(true);
+        pieData.setValueFormatter(new PercentFormatter(pieChart));
 
         if (!entries.isEmpty()) pieChart.setData(pieData);
         pieChart.getDescription().setText("");
