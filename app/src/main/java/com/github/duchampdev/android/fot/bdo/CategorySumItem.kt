@@ -15,32 +15,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.github.duchampdev.android.fot.bdo;
+package com.github.duchampdev.android.fot.bdo
 
-
-public class CategorySumItem {
-
-    private Category category;
-    private double sum;
-
-    public CategorySumItem(Category category, double sum) {
-        this.category = category;
-        this.sum = sum;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public double getSum() {
-        return sum;
-    }
-
-    public void setSum(double sum) {
-        this.sum = sum;
-    }
-}
+data class CategorySumItem(var category: Category, var sum: Double)

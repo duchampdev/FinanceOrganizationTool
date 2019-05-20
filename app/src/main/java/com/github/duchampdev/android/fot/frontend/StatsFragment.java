@@ -33,8 +33,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.github.duchampdev.android.fot.bdo.CategorySumItem;
 import com.github.duchampdev.android.fot.R;
+import com.github.duchampdev.android.fot.bdo.CategorySumItem;
 import com.github.duchampdev.android.fot.bdo.TransactionItem;
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB;
 import com.github.duchampdev.android.fot.bdo.Category;
@@ -47,7 +47,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
-import java.text.DecimalFormat;
 import java.util.*;
 
 

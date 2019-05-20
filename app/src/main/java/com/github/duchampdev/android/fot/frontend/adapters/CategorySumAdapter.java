@@ -29,9 +29,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import com.github.duchampdev.android.fot.bdo.CategorySumItem;
 import com.github.duchampdev.android.fot.R;
 import com.github.duchampdev.android.fot.bdo.Category;
+import com.github.duchampdev.android.fot.bdo.CategorySumItem;
 import com.github.duchampdev.android.fot.util.Util;
 
 
