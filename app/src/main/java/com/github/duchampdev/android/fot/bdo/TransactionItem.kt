@@ -17,6 +17,7 @@
 
 package com.github.duchampdev.android.fot.bdo
 
+import com.github.duchampdev.android.fot.extensions.nullForEmpty
 import java.io.Serializable
 import java.util.*
 
@@ -26,7 +27,7 @@ data class TransactionItem(val id: Long, var secondParty: String, var amount: Do
         const val NOID = -1L
     }
 
-    constructor(secondParty: String, amount: Double, title: String?, category: Category, date: Date): this(NOID, secondParty, amount, if(title?.isEmpty() != false) null else title, category, date)
+    constructor(secondParty: String, amount: Double, title: String?, category: Category, date: Date): this(NOID, secondParty, amount, title?.nullForEmpty(), category, date)
 
     constructor(secondParty: String, amount: Double, title: String?, category: Category): this(NOID, secondParty, amount, title, category, Calendar.getInstance().time)
 }

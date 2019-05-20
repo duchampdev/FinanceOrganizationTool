@@ -12,3 +12,7 @@ fun Context.getColorForThemeForAttr(attr: Int): Int {
         android.R.color.darker_gray // fallback
     }
 }
+
+fun String.nullForEmpty(): String? {
+    return if (isEmpty()) null else this
+}
