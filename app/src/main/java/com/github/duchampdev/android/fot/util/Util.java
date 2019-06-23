@@ -19,7 +19,7 @@ package com.github.duchampdev.android.fot.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.graphics.ColorUtils;
+import androidx.core.graphics.ColorUtils;
 import android.util.TypedValue;
 
 import java.text.DecimalFormat;

@@ -20,11 +20,10 @@ package com.github.duchampdev.android.fot.frontend.settings;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.*;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import androidx.core.app.NavUtils;
 import android.widget.Toast;
 import com.github.duchampdev.android.fot.R;
 

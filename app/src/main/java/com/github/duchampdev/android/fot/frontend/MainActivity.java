@@ -22,12 +22,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
         switch (menuItem.getItemId()) {
             case R.id.navigation_dashboard:
                 selected = DashboardFragment.newInstance();
-                fab.setVisibility(View.VISIBLE);
+                fab.show();
                 break;
             case R.id.navigation_stats:
                 selected = StatsFragment.newInstance();
-                fab.setVisibility(View.GONE);
+                fab.hide();
                 break;
         }
         activeFragment = selected;

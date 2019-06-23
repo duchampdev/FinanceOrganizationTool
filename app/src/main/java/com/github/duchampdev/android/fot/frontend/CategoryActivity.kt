@@ -17,11 +17,9 @@
 
 package com.github.duchampdev.android.fot.frontend
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView

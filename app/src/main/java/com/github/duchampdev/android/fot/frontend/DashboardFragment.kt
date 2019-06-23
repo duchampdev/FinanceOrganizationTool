@@ -19,8 +19,8 @@ package com.github.duchampdev.android.fot.frontend
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -96,7 +96,7 @@ class DashboardFragment: Fragment() {
             reloadTransactions()
         }
 
-        tdf.show(fragmentManager, "atdf")
+        tdf.show(fragmentManager!!, "atdf")
     }
 
     private fun setUpCallbacks(view: View) {
@@ -142,7 +142,7 @@ class DashboardFragment: Fragment() {
                                 reloadTransactions()
                             }
                         }
-                        tdf.show(fragmentManager, "etdf")
+                        tdf.show(fragmentManager!!, "etdf")
                     }
                     .setNegativeButton(resources.getString(R.string.delete)) { _, _ ->
                         Snackbar.make(view, resources.getString(R.string.dashboard_transaction_really_delete), Snackbar.LENGTH_LONG)
