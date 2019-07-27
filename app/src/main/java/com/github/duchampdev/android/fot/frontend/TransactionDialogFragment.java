@@ -92,7 +92,7 @@ public class TransactionDialogFragment extends DialogFragment {
                 }
             }
         });
-        autocompleteService = SecondpartyAutocompleteService.getInstance(secondParty.getContext());
+        autocompleteService = SecondpartyAutocompleteService.Companion.getInstance(secondParty.getContext());
         secondParty.setAdapter(new ArrayAdapter<>(secondParty.getContext(), android.R.layout.simple_spinner_dropdown_item,autocompleteService.getProposals()));
         dialogBuilder.setView(v);
         return dialogBuilder.create();

@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         String[] possibleValues = getResources().getStringArray(R.array.settings_nightmode_entry_vals);
         String nightModePrefValue = PreferenceManager.getDefaultSharedPreferences(this).getString(getResources().getString(R.string.pref_key_nightmode), possibleValues[0]);
         if(nightModePrefValue.equals(possibleValues[0])) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_TIME);
         } else if(nightModePrefValue.equals(possibleValues[1])) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else if(nightModePrefValue.equals(possibleValues[2])) {
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        FinanceOrgaToolDB.getInstance(this).closeDB();
+        FinanceOrgaToolDB.Companion.getInstance(this).closeDB();
         super.onStop();
     }
 

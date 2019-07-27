@@ -87,7 +87,7 @@ class DashboardFragment: Fragment() {
 
     fun addNewTransaction() {
         val transactionBundle = Bundle()
-        transactionBundle.putSerializable("categories", dbInstance.categories as Serializable)
+        transactionBundle.putSerializable("categories", dbInstance.getCategories() as Serializable)
 
         val tdf = TransactionDialogFragment()
         tdf.arguments = transactionBundle
@@ -127,14 +127,14 @@ class DashboardFragment: Fragment() {
         }
 
         view.dashboard_positions.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, position, _ ->
-            val transaction = transactionAdapter.getItem(position)
+            val transaction = transactionAdapter.getItem(position)!!
             AlertDialog.Builder(context)
                     .setTitle(resources.getString(R.string.dashboard_transaction_menu))
                     .setPositiveButton(resources.getString(R.string.edit)) { _, _ ->
                         val tdf = TransactionDialogFragment()
                         val transactionBundle = Bundle()
                         transactionBundle.putSerializable("titem", transaction)
-                        transactionBundle.putSerializable("categories", dbInstance.categories as Serializable)
+                        transactionBundle.putSerializable("categories", dbInstance.getCategories() as Serializable)
                         tdf.arguments = transactionBundle
                         tdf.registerTransactionDialogCallbacks { item ->
                             run {

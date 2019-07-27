@@ -94,7 +94,7 @@ public class StatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_stats, container, false);
-        dbInstance = FinanceOrgaToolDB.getInstance(v.getContext());
+        dbInstance = FinanceOrgaToolDB.Companion.getInstance(v.getContext());
         from = v.findViewById(R.id.stats_from);
         until = v.findViewById(R.id.stats_until);
         incoming = v.findViewById(R.id.stats_in_list);

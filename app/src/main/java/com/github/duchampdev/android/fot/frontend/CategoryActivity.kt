@@ -53,7 +53,7 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun reloadCategories() {
         existingCategoriesAdapter.clear()
-        existingCategoriesAdapter.addAll(dbInstance.categories)
+        existingCategoriesAdapter.addAll(dbInstance.getCategories())
         existingCategoriesAdapter.notifyDataSetChanged()
     }
 
