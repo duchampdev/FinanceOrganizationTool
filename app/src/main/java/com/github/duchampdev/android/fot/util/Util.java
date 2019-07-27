@@ -70,6 +70,7 @@ public class Util {
     }
 
     public static int[] getStatsDiagramColors(int count) {
+        if(count == 0) return new int[] {};
         int step = 360 / count;
         int[] colors = new int[count];
         IntStream.range(0, count).forEach(i -> colors[i] = ColorUtils.HSLToColor(new float[] {step*i, .5f, .55f }));
