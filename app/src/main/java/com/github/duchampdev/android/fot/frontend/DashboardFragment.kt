@@ -28,6 +28,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
+import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.io.Serializable
@@ -91,10 +92,12 @@ class DashboardFragment: Fragment() {
 
         val tdf = TransactionDialogFragment()
         tdf.arguments = transactionBundle
-        tdf.registerTransactionDialogCallbacks { item ->
-            dbInstance.insertOrUpdate(item)
-            reloadTransactions()
-        }
+        tdf.registerTransactionDialogCallbacks(object: TransactionDialogFragment.TransactionDialogCallbacks {
+            override fun dataSaved(item: TransactionItem) {
+                dbInstance.insertOrUpdate(item)
+                reloadTransactions()
+            }
+        })
 
         tdf.show(fragmentManager!!, "atdf")
     }
@@ -136,12 +139,12 @@ class DashboardFragment: Fragment() {
                         transactionBundle.putSerializable("titem", transaction)
                         transactionBundle.putSerializable("categories", dbInstance.getCategories() as Serializable)
                         tdf.arguments = transactionBundle
-                        tdf.registerTransactionDialogCallbacks { item ->
-                            run {
+                        tdf.registerTransactionDialogCallbacks(object: TransactionDialogFragment.TransactionDialogCallbacks {
+                            override fun dataSaved(item: TransactionItem) {
                                 dbInstance.insertOrUpdate(item)
                                 reloadTransactions()
                             }
-                        }
+                        })
                         tdf.show(fragmentManager!!, "etdf")
                     }
                     .setNegativeButton(resources.getString(R.string.delete)) { _, _ ->
