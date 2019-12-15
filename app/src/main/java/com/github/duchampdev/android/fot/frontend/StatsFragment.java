@@ -123,10 +123,10 @@ public class StatsFragment extends Fragment {
 
         Calendar cal = Calendar.getInstance();
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 1, 0, 0, 0);
-        from.setText(Util.formatDate(cal));
+        from.setText(Util.Companion.formatDate(cal));
         fromDate = cal.getTime();
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.getActualMaximum(Calendar.DAY_OF_MONTH), 23, 59, 59);
-        until.setText(Util.formatDate(cal));
+        until.setText(Util.Companion.formatDate(cal));
         untilDate = cal.getTime();
         reloadCategorySums();
 
@@ -157,18 +157,18 @@ public class StatsFragment extends Fragment {
             if (v == from) {
                 res.set(year, month, dayOfMonth, 0, 0, 0);
                 fromDate = res.getTime();
-                from.setText(Util.formatDate(res));
+                from.setText(Util.Companion.formatDate(res));
                 if(dayOfMonth == 1 && PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(getContext().getResources().getString(R.string.pref_key_statsrange), true)) {
                     // the user likely want's to show at least a whole month, so also adjust until, if allowed
                     Calendar end = Calendar.getInstance();
                     end.set(year, month, res.getActualMaximum(Calendar.DAY_OF_MONTH), 0, 0, 0);
                     untilDate = end.getTime();
-                    until.setText(Util.formatDate(end));
+                    until.setText(Util.Companion.formatDate(end));
                 }
             } else if (v == until) {
                 res.set(year, month, dayOfMonth, 23, 59, 59);
                 untilDate = res.getTime();
-                until.setText(Util.formatDate(res));
+                until.setText(Util.Companion.formatDate(res));
             }
             reloadCategorySums();
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
@@ -193,7 +193,7 @@ public class StatsFragment extends Fragment {
         }
 
         PieDataSet piePreData = new PieDataSet(entries, "");
-        piePreData.setColors(Util.getStatsDiagramColors(rawData.size()));
+        piePreData.setColors(Util.Companion.getStatsDiagramColors(rawData.size()));
 
         PieData pieData = new PieData(piePreData);
         pieData.setValueTextSize(16);
@@ -246,13 +246,13 @@ public class StatsFragment extends Fragment {
         incomingAdapter.notifyDataSetChanged();
         outgoingAdapter.notifyDataSetChanged();
 
-        sumIn.setText(Util.formatMoney(sumIncoming));
-        sumOut.setText(Util.formatMoney(sumOutgoing));
-        sumTotal.setText(Util.formatMoney(sumIncoming - sumOutgoing));
+        sumIn.setText(Util.Companion.formatMoney(sumIncoming));
+        sumOut.setText(Util.Companion.formatMoney(sumOutgoing));
+        sumTotal.setText(Util.Companion.formatMoney(sumIncoming - sumOutgoing));
         if (sumIncoming - sumOutgoing < 0) {
-            sumTotal.setTextColor(Util.getColorForThemeFromAttr(getContext(), R.attr.fot_red));
+            sumTotal.setTextColor(Util.Companion.getColorForThemeFromAttr(getContext(), R.attr.fot_red));
         } else {
-            sumTotal.setTextColor(Util.getColorForThemeFromAttr(getContext(), R.attr.fot_green));
+            sumTotal.setTextColor(Util.Companion.getColorForThemeFromAttr(getContext(), R.attr.fot_green));
         }
 
     }

@@ -61,15 +61,15 @@ public class TransactionAdapter extends ArrayAdapter<TransactionItem> {
         TransactionItem curItem = items.get(position);
 
         secondParty.setText(curItem.getSecondParty());
-        amount.setText(Util.formatMoney(curItem.getAmount()));
+        amount.setText(Util.Companion.formatMoney(curItem.getAmount()));
         if (curItem.getCategory().getDirection() == Category.OUTGOING) {
-            amount.setTextColor(Util.getColorForThemeFromAttr(context, R.attr.fot_red));
+            amount.setTextColor(Util.Companion.getColorForThemeFromAttr(context, R.attr.fot_red));
         } else if (curItem.getCategory().getDirection() == Category.INCOMING) {
-            amount.setTextColor(Util.getColorForThemeFromAttr(context, R.attr.fot_green));
+            amount.setTextColor(Util.Companion.getColorForThemeFromAttr(context, R.attr.fot_green));
         }
         title.setText(curItem.getTitle());
         category.setText(curItem.getCategory().getName());
-        date.setText(Util.formatDate(curItem.getDate()));
+        date.setText(Util.Companion.formatDate(curItem.getDate()));
 
 
         return itemView;

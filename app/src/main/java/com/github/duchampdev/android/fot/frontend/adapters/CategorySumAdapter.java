@@ -58,12 +58,12 @@ public class CategorySumAdapter extends ArrayAdapter<CategorySumItem> {
         CategorySumItem curItem = items.get(position);
 
         category.setText(curItem.getCategory().getName());
-        sum.setText(Util.formatMoney(curItem.getSum()));
+        sum.setText(Util.Companion.formatMoney(curItem.getSum()));
 
         if (curItem.getCategory().getDirection() == Category.INCOMING && curItem.getSum() != 0) {
-            sum.setTextColor(Util.getColorForThemeFromAttr(context, R.attr.fot_green));
+            sum.setTextColor(Util.Companion.getColorForThemeFromAttr(context, R.attr.fot_green));
         } else if (curItem.getSum() != 0) {
-            sum.setTextColor(Util.getColorForThemeFromAttr(context, R.attr.fot_red));
+            sum.setTextColor(Util.Companion.getColorForThemeFromAttr(context, R.attr.fot_red));
         } else {
             sum.setTextColor(context.getResources().getColor(android.R.color.secondary_text_light_nodisable, null));
         }
