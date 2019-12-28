@@ -20,8 +20,10 @@
     <color name="colorPrimary">#001587</color>
     <color name="colorPrimaryDark">#000b4e</color>
     <color name="colorAccent">#ff0000</color>
-    <color name="colorCreme">#fdfa84</color>
+    <color name="colorCreme">#FAF798</color>
 
     <color name="colorNightGreen">#64dd17</color>
     <color name="colorNightRed">#e40000</color>
+    <color name="colorNightPrimary">#90A1F9</color>
+    <color name="colorNightAccent">#FFE082</color>
 </resources>
