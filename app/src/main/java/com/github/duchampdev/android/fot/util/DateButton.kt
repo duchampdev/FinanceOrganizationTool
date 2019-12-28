@@ -33,6 +33,9 @@ class DateButton : Button, View.OnClickListener {
 
     private val cal = Calendar.getInstance()
     private val listeners: MutableList<DateEventListener> = ArrayList()
+    private var toD: TimeOfDay = TimeOfDay.KEEP
+
+    enum class TimeOfDay { START, END, KEEP }
 
     constructor(context: Context) : super(context) {
         setOnClickListener(this)
@@ -50,10 +53,18 @@ class DateButton : Button, View.OnClickListener {
         text = Util.formatDate(cal)
     }
 
+    fun setTimeOfDay(toD: TimeOfDay) {
+        this.toD = toD
+    }
+
 
     override fun onClick(v: View?) {
         DatePickerDialog(context, DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-            cal.set(year, month, dayOfMonth) // keep time
+            when(toD) {
+                TimeOfDay.START -> cal.set(year, month, dayOfMonth, 0, 0, 0)
+                TimeOfDay.END -> cal.set(year, month, dayOfMonth, 23, 59, 59)
+                TimeOfDay.KEEP -> cal.set(year, month, dayOfMonth)
+            }
             text = Util.formatDate(cal)
             listeners.forEach { l -> l.onDateChanged(cal.time) }
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
