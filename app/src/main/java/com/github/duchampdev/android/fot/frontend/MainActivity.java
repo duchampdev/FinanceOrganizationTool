@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 fab.show();
                 break;
             case R.id.navigation_stats:
-                selected = StatsFragment.newInstance();
+                selected = StatsFragment.Companion.newInstance();
                 fab.hide();
                 break;
         }

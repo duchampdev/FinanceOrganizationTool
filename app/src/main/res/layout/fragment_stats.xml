@@ -48,13 +48,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <com.github.duchampdev.android.fot.util.DateButton
             android:id="@+id/stats_from"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <Button
+        <com.github.duchampdev.android.fot.util.DateButton
             android:id="@+id/stats_until"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
