@@ -165,7 +165,7 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
         val orderLRU = PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getString(R.string.pref_key_categoryorder), false)
         return if (orderLRU) {
-            categories.sortedBy(Category::lastUsed)
+            categories.sortedBy(Category::lastUsed).reversed()
         } else {
             // outgoing first
             categories.sortedWith(compareBy({ c -> -c.direction }, Category::name))
