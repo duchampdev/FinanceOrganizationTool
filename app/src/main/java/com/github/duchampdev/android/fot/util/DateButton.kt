@@ -25,11 +25,12 @@ import androidx.annotation.RequiresApi
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Button
+import com.google.android.material.button.MaterialButton
 import java.util.*
 import kotlin.collections.ArrayList
 
 @SuppressLint("AppCompatCustomView")
-class DateButton : Button, View.OnClickListener {
+class DateButton : MaterialButton, View.OnClickListener {
 
     private val cal = Calendar.getInstance()
     private val listeners: MutableList<DateEventListener> = ArrayList()
@@ -43,12 +44,6 @@ class DateButton : Button, View.OnClickListener {
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        setOnClickListener(this)
-        text = Util.formatDate(cal)
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
         setOnClickListener(this)
         text = Util.formatDate(cal)
     }
