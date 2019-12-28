@@ -59,7 +59,7 @@ class StatsFragment: Fragment() {
     private lateinit var untilDate: Date
 
     companion object {
-        fun newInstance(): StatsFragment = StatsFragment().also { f -> f.arguments = Bundle() }
+        @JvmStatic fun newInstance(): StatsFragment = StatsFragment().also { f -> f.arguments = Bundle() }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
