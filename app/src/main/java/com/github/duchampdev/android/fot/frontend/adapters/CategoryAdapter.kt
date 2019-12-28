@@ -35,9 +35,8 @@ class CategoryAdapter(@NonNull context: Context, @LayoutRes resource: Int, @NonN
 
     private val items: List<Category> = objects
 
-
     @NonNull
-    override fun getView(position: Int, @Nullable convertView: View?, @NonNull parent: ViewGroup?): View {
+    override fun getView(position: Int, @Nullable convertView: View?, @NonNull parent: ViewGroup): View {
         val itemView = convertView ?: (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.category_item, parent, false)
 
         val currentItem = items.get(position)

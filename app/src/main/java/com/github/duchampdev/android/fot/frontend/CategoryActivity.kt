@@ -87,7 +87,7 @@ class CategoryActivity : AppCompatActivity() {
      * method to handle list item long click (options menu for existing categories)
      */
     private fun showCategoryMenu(parent: AdapterView<*>, view: View, position: Int, id: Long): Boolean {
-        val selectedCategory = existingCategoriesAdapter.getItem(position)
+        val selectedCategory = existingCategoriesAdapter.getItem(position)!!
         AlertDialog.Builder(this)
                 .setTitle(selectedCategory.name)
                 .setNeutralButton(resources.getString(R.string.abort), null)
