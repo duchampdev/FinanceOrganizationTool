@@ -45,7 +45,7 @@
                     android:value=".frontend.MainActivity"/>
         </activity>
         <activity
-                android:name=".frontend.settings.SettingsActivity"
+                android:name=".frontend.SettingsActivity"
                 android:label="@string/settings"
                 android:parentActivityName=".frontend.MainActivity">
             <meta-data
