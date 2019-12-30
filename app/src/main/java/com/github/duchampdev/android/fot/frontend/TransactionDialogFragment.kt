@@ -27,9 +27,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.github.duchampdev.android.fot.R
+import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.backend.SecondpartyAutocompleteService
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.TransactionItem
+import com.github.duchampdev.android.fot.util.NoFilterArrayAdapter
 import com.github.duchampdev.android.fot.util.Util
 import kotlinx.android.synthetic.main.dialog_transaction.*
 import kotlinx.android.synthetic.main.dialog_transaction.view.*
@@ -67,6 +69,8 @@ class TransactionDialogFragment: DialogFragment() {
     }
     
     private fun saveTransaction() {
+        val dbInstance = FinanceOrgaToolDB.getInstance(context!!)
+        val selectedCategory =  dbInstance.getCategoryForName(dialog!!.tdialog_category.text.toString())
         when {
             dialog!!.tdialog_secondparty.text.toString().isEmpty() -> {
                 activity!!.runOnUiThread { Toast.makeText(context, resources.getString(R.string.tdialog_secondparty_missing), Toast.LENGTH_LONG).show() }
@@ -74,7 +78,7 @@ class TransactionDialogFragment: DialogFragment() {
             dialog!!.tdialog_amount.text.toString().isEmpty() -> {
                 activity!!.runOnUiThread { Toast.makeText(context, resources.getString(R.string.tdialog_amount_missing), Toast.LENGTH_LONG).show() }
             }
-            dialog!!.tdialog_category.selectedItemPosition == AdapterView.INVALID_POSITION -> {
+            selectedCategory == null -> {
                 activity!!.runOnUiThread { Toast.makeText(context, resources.getString(R.string.tdialog_category_missing), Toast.LENGTH_LONG).show() }
             }
             else -> {
@@ -88,13 +92,13 @@ class TransactionDialogFragment: DialogFragment() {
 
                 // data is valid - persist
                 if (! ::editable.isInitialized) { // new item
-                    editable = TransactionItem(dialog!!.tdialog_secondparty.text.toString(), Util.formatMoney(dialog!!.tdialog_amount.text.toString()), dialog!!.tdialog_title.text.toString(), dialog!!.tdialog_category.selectedItem as Category, dialog!!.tdialog_date.getDate())
+                    editable = TransactionItem(dialog!!.tdialog_secondparty.text.toString(), Util.formatMoney(dialog!!.tdialog_amount.text.toString()), dialog!!.tdialog_title.text.toString(), selectedCategory, dialog!!.tdialog_date.getDate())
                 } else {
                     editable.secondParty = dialog!!.tdialog_secondparty.text.toString()
                     editable.amount = Util.formatMoney(dialog!!.tdialog_amount.text.toString())
                     editable.title = dialog!!.tdialog_title.text.toString()
                     editable.date = dialog!!.tdialog_date.getDate()
-                    editable.category = dialog!!.tdialog_category.selectedItem as Category
+                    editable.category = selectedCategory
                 }
 
                 listeners.forEach { l -> l.dataSaved(editable) }
@@ -105,8 +109,8 @@ class TransactionDialogFragment: DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categorySpinnerAdapter = ArrayAdapter(context!!, android.R.layout.simple_spinner_dropdown_item, ArrayList())
-        view.tdialog_category.adapter = categorySpinnerAdapter
+        categorySpinnerAdapter = NoFilterArrayAdapter(context!!, android.R.layout.simple_spinner_dropdown_item, ArrayList())
+        view.tdialog_category.setAdapter(categorySpinnerAdapter)
 
         view.tdialog_amount.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if(!hasFocus) {
@@ -136,7 +140,7 @@ class TransactionDialogFragment: DialogFragment() {
                 view.tdialog_amount.setText(Util.formatMoney(editable.amount))
                 view.tdialog_title.setText(editable.title)
                 view.tdialog_date.setDate(editable.date)
-                view.tdialog_category.setSelection(categorySpinnerAdapter.getPosition(editable.category))
+                view.tdialog_category.setText(editable.category.toString())
             }
         }
     }

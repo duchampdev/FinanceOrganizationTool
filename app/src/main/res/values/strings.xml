@@ -122,11 +122,11 @@
     <string name="tdialog_secondparty_missing">Empfänger/Quelle fehlt</string>
     <string name="tdialog_amount_missing">Betrag fehlt</string>
     <string name="tdialog_category_missing">Kategorie fehlt</string>
-    <string name="tdialog_label_secondparty">Empfänger/Quelle:</string>
-    <string name="tdialog_label_amount">Betrag:</string>
-    <string name="tdialog_label_title">Titel (optional):</string>
-    <string name="tdialog_label_date">Datum:</string>
-    <string name="tdialog_label_category">Kategorie:</string>
+    <string name="tdialog_label_secondparty">Empfänger/Quelle</string>
+    <string name="tdialog_label_amount">Betrag</string>
+    <string name="tdialog_label_title">Titel (optional)</string>
+    <string name="tdialog_label_category">Kategorie</string>
+    <string name="tdialog_currency_symbol">\u20ac</string>
 
     <!-- settings -->
     <string name="settings_header_general">Allgemein</string>

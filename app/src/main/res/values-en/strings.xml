@@ -63,7 +63,7 @@
     <string name="no">no</string>
 
     <string name="save">save</string>
-    <string name="abort">abort</string>
+    <string name="abort">cancel</string>
     <string name="edit">edit</string>
     <string name="rename">rename</string>
     <string name="delete">delete</string>
@@ -119,11 +119,10 @@
     <string name="tdialog_secondparty_missing">receiver/source missing</string>
     <string name="tdialog_amount_missing">amount missing</string>
     <string name="tdialog_category_missing">category missing</string>
-    <string name="tdialog_label_secondparty">receiver/source:</string>
-    <string name="tdialog_label_amount">amount:</string>
-    <string name="tdialog_label_title">title (optional):</string>
-    <string name="tdialog_label_date">date:</string>
-    <string name="tdialog_label_category">category:</string>
+    <string name="tdialog_label_secondparty">receiver/source</string>
+    <string name="tdialog_label_amount">amount</string>
+    <string name="tdialog_label_title">title (optional)</string>
+    <string name="tdialog_label_category">category</string>
 
     <!-- settings -->
     <string name="settings_header_general">General</string>

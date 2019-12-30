@@ -172,6 +172,10 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
         }
     }
 
+    fun getCategoryForName(name: String): Category? {
+        return categoriesCache.values.find { c -> c.toString() == name }
+    }
+
     private fun refreshCategoriesCache() {
         if (!isOpeningDb) openDB() // might lead to double refreshCategoriesCache call
         categoriesCache.clear()
