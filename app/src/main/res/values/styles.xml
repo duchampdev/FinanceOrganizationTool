@@ -23,6 +23,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorAccent</item> <!-- fab -->
 
         <item name="bottomNavigationSelectedColor">@color/colorPrimary</item>
         <item name="fot_red">@android:color/holo_red_dark</item>

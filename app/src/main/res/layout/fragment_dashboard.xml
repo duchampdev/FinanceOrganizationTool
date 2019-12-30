@@ -28,17 +28,36 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/dashboard_month"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_weight="1" />
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingVertical="@dimen/input_padding_vertical"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <com.google.android.material.textview.MaterialAutoCompleteTextView
+                    android:id="@+id/dashboard_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/dashboard_month"
+                    android:editable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Spinner
-            android:id="@+id/dashboard_year"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1" />
+        <Space android:layout_width="5dp"
+               android:layout_height="match_parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="@dimen/input_padding_vertical"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <com.google.android.material.textview.MaterialAutoCompleteTextView
+                    android:id="@+id/dashboard_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/dashboard_year"
+                    android:editable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 

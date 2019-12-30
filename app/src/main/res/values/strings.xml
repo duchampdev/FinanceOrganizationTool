@@ -102,6 +102,8 @@
     <string name="dashboard_transaction_menu">Transaktionsmenü</string>
     <string name="dashboard_transaction_really_delete">Transaktion löschen?</string>
     <string name="dashboard_transaction_deleted">Transaktion gelöscht</string>
+    <string name="dashboard_month">Monat</string>
+    <string name="dashboard_year">Jahr</string>
 
     <!-- stats -->
     <string name="stats_startdate">Startdatum</string>

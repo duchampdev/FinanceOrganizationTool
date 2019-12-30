@@ -30,6 +30,8 @@ import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
+import com.github.duchampdev.android.fot.util.NoFilterArrayAdapter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.io.Serializable
 import java.util.*
@@ -64,18 +66,18 @@ class DashboardFragment: Fragment() {
 
         dbInstance = FinanceOrgaToolDB.getInstance(view.context)
 
-        val monthAdapter = ArrayAdapter.createFromResource(view.context, R.array.months, android.R.layout.simple_spinner_item)
+        val monthAdapter = NoFilterArrayAdapter<String>(view.context, android.R.layout.simple_spinner_dropdown_item, arrayListOf(*context!!.resources.getStringArray(R.array.months)))
                 .also { mA -> mA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-        val yearAdapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, years)
+        val yearAdapter = NoFilterArrayAdapter<String>(view.context, android.R.layout.simple_spinner_dropdown_item, arrayListOf(*years))
                 .also { yA -> yA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
 
-        view.dashboard_month.adapter = monthAdapter
-        view.dashboard_year.adapter = yearAdapter
+        view.dashboard_month.setAdapter(monthAdapter)
+        view.dashboard_year.setAdapter(yearAdapter)
 
         currentMonthZeroBased = Calendar.getInstance().get(Calendar.MONTH)
         currentYear = Calendar.getInstance().get(Calendar.YEAR)
-        view.dashboard_month.setSelection(currentMonthZeroBased) // january == 0 -> no problem with zero-based indices
-        view.dashboard_year.setSelection(0) // current year
+        view.dashboard_month.setText(monthAdapter.getItem(currentMonthZeroBased)) // january == 0 -> no problem with zero-based indices
+        view.dashboard_year.setText(currentYear.toString()) // current year
 
         transactionAdapter = TransactionAdapter(view.context, R.layout.transaction_item, ArrayList())
         view.dashboard_positions.adapter = transactionAdapter
@@ -103,35 +105,19 @@ class DashboardFragment: Fragment() {
     }
 
     private fun setUpCallbacks(view: View) {
-        view.dashboard_month.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                currentMonthZeroBased = position
-                reloadTransactions()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                currentMonthZeroBased = Calendar.getInstance().get(Calendar.MONTH)
-                view.dashboard_month.setSelection(currentMonthZeroBased) // prevent nothing being selected
-                reloadTransactions()
-            }
+        view.dashboard_month.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            currentMonthZeroBased = position
+            reloadTransactions()
         }
 
-        view.dashboard_year.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                currentYear = Calendar.getInstance().get(Calendar.YEAR) - position // current year is first, others follow
-                reloadTransactions()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                view.dashboard_year.setSelection(0) // prevent nothing being selected
-                currentYear = Calendar.getInstance().get(Calendar.YEAR)
-                reloadTransactions()
-            }
+        view.dashboard_year.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+            currentYear = Calendar.getInstance().get(Calendar.YEAR) - position // current year is first, others follow
+            reloadTransactions()
         }
 
         view.dashboard_positions.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, position, _ ->
             val transaction = transactionAdapter.getItem(position)!!
-            AlertDialog.Builder(context)
+            MaterialAlertDialogBuilder(context)
                     .setTitle(resources.getString(R.string.dashboard_transaction_menu))
                     .setPositiveButton(resources.getString(R.string.edit)) { _, _ ->
                         val tdf = TransactionDialogFragment()
