@@ -88,10 +88,10 @@ class StatsFragment: Fragment() {
 
         val cal = Calendar.getInstance()
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), 1, 0, 0, 0)
-        v.stats_from.text = Util.Companion.formatDate(cal)
+        v.stats_from.setDate(cal.time)
         fromDate = cal.time
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.getActualMaximum(Calendar.DAY_OF_MONTH), 23, 59, 59)
-        v.stats_until.text = Util.formatDate(cal)
+        v.stats_until.setDate(cal.time)
         untilDate = cal.time
 
         v.stats_in_list.setOnItemClickListener { parent, view, position, id -> showCategoryTransactionsDialog(incomingAdapter.getItem(position)!!.category) }
