@@ -16,154 +16,192 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="5dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/stats_label_from" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/stats_label_until" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <com.github.duchampdev.android.fot.util.DateButton
-            android:id="@+id/stats_from"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <com.github.duchampdev.android.fot.util.DateButton
-            android:id="@+id/stats_until"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".7"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingEnd="4dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:text="@string/stats_label_incoming"
-                android:textAllCaps="true" />
-
-            <ListView
-                android:id="@+id/stats_in_list"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="true"
-                android:focusable="true"
-                android:scrollbars="none" />
+                android:padding="5dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.github.duchampdev.android.fot.util.DateButton
+                    android:id="@+id/stats_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:icon="@drawable/baseline_first_page_24"/>
+
+            <Space android:layout_width="5dp"
+                   android:layout_height="match_parent"/>
+
+            <com.github.duchampdev.android.fot.util.DateButton
+                    android:id="@+id/stats_until"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:icon="@drawable/baseline_last_page_24"
+                    app:iconGravity="end"/>
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingStart="4dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="2dp"
-                android:text="@string/stats_label_outgoing"
-                android:textAllCaps="true" />
-
-            <ListView
-                android:id="@+id/stats_out_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="true"
-                android:focusable="true"
-                android:scrollbars="none" />
+                android:layout_weight=".7"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingEnd="4dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/income_plural"
+                        android:textAllCaps="true"/>
+
+                <ListView
+                        android:id="@+id/stats_in_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:scrollbars="none"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingStart="4dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/expense_plural"
+                        android:textAllCaps="true"/>
+
+                <ListView
+                        android:id="@+id/stats_out_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:scrollbars="none"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:columnCount="3"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:rowCount="3">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:prefixText="@string/tdialog_currency_symbol"
+                    android:hint="@string/income_plural"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/stats_sum_in"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:textColor="?attr/fot_green"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space android:layout_width="5dp"
+                   android:layout_height="match_parent"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:prefixText="@string/tdialog_currency_symbol"
+                    android:hint="@string/expense_plural"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/stats_sum_out"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:textColor="?attr/fot_red"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space android:layout_width="5dp"
+                   android:layout_height="match_parent"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:prefixText="@string/tdialog_currency_symbol"
+                    android:hint="@string/stats_label_sum_both"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/stats_sum_total"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:textColor="?attr/fot_green"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/stats_show_pie_in"
+                    app:icon="@drawable/baseline_pie_chart_24"
+                    android:text="@string/income_plural"/>
+
+            <Space android:layout_width="5dp"
+                   android:layout_height="match_parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/stats_show_pie_out"
+                    app:icon="@drawable/baseline_pie_chart_24"
+                    android:text="@string/expense_plural"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
-        <TextView android:text="@string/stats_label_sum_incoming" />
-
-        <TextView android:text="@string/stats_label_sum_outgoing" />
-
-        <TextView android:text="@string/stats_label_sum_both" />
-
-        <EditText
-            android:id="@+id/stats_sum_in"
-            android:editable="false"
-            android:focusable="false"
-            android:gravity="end"
-            android:layout_gravity="fill_horizontal"
-            android:textColor="?attr/fot_green" />
-
-        <EditText
-            android:id="@+id/stats_sum_out"
-            android:editable="false"
-            android:focusable="false"
-            android:gravity="end"
-            android:layout_gravity="fill_horizontal"
-            android:textColor="?attr/fot_red" />
-
-        <EditText
-            android:id="@+id/stats_sum_total"
-            android:editable="false"
-            android:focusable="false"
-            android:gravity="end"
-            android:layout_gravity="fill_horizontal" />
-
-        <Button
-            android:id="@+id/stats_show_pie_in"
-            android:text="@string/diagram"/>
-
-        <Button
-            android:id="@+id/stats_show_pie_out"
-            android:text="@string/diagram"/>
-    </GridLayout>
-
-
-</LinearLayout>
+</RelativeLayout>

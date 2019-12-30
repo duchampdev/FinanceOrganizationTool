@@ -60,7 +60,6 @@
     <string name="income_plural">Einnahmen</string>
     <string name="expense_plural">Ausgaben</string>
     <string name="category">Kategorie</string>
-    <string name="diagram">Diagramm</string>
 
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
@@ -106,16 +105,8 @@
     <string name="dashboard_year">Jahr</string>
 
     <!-- stats -->
-    <string name="stats_startdate">Startdatum</string>
-    <string name="stats_enddate">Enddatum</string>
     <string name="stats_no_data">Keine Daten vorhanden!</string>
-    <string name="stats_label_from">von:</string>
-    <string name="stats_label_until">bis:</string>
-    <string name="stats_label_incoming">eingehend:</string>
-    <string name="stats_label_outgoing">ausgehend:</string>
-    <string name="stats_label_sum_incoming">Summe eingehend:</string>
-    <string name="stats_label_sum_outgoing">Summe ausgehend:</string>
-    <string name="stats_label_sum_both">Summe insgesamt:</string>
+    <string name="stats_label_sum_both">Bilanz</string>
 
     <!-- transaction dialog -->
     <string name="tdialog_add_transaction">Transaktion hinzufügen</string>

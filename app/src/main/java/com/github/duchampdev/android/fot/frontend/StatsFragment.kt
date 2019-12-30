@@ -40,6 +40,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_stats.*
 import kotlinx.android.synthetic.main.fragment_stats.view.*
 import java.lang.IllegalArgumentException
@@ -175,7 +176,7 @@ class StatsFragment: Fragment() {
         pieChart.setBackgroundColor(0xFFDDDDDD.toInt())
         pieChart.setHoleColor(0xFFDDDDDD.toInt())
 
-        AlertDialog.Builder(context!!)
+        MaterialAlertDialogBuilder(context!!)
                 .setTitle(when(direction) {
                     Category.INCOMING -> resources.getString(R.string.income_plural)
                     Category.OUTGOING -> resources.getString(R.string.expense_plural)
