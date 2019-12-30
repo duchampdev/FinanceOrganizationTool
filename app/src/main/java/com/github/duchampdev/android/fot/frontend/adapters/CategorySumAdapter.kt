@@ -39,7 +39,7 @@ class CategorySumAdapter(context: Context, @LayoutRes resource: Int, items: List
 
         val currentItem = getItem(position)!!
         categoryView.text = currentItem.category.name
-        sumView.text = Util.formatMoney(currentItem.sum)
+        sumView.text = Util.formatMoney(currentItem.sum, withSymbol = true)
 
         val color = when(currentItem.sum) {
             0f.toDouble() -> context.resources.getColor(android.R.color.secondary_text_light_nodisable, null)

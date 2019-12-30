@@ -29,9 +29,9 @@ class Util {
     companion object {
         private val currencySymbol = Currency.getInstance(Locale.GERMANY).symbol
 
-        fun formatMoney(value: Double): String {
+        fun formatMoney(value: Double, withSymbol: Boolean = false): String {
             val rounded = (value * 100).roundToInt().toDouble() / 100
-            return DecimalFormat("#0.00 $currencySymbol").format(rounded)
+            return DecimalFormat("#0.00 ${if(withSymbol) currencySymbol else ""}").format(rounded)
         }
 
         fun formatMoney(value: String): Double {

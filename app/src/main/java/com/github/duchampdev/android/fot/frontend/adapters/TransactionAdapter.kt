@@ -46,7 +46,7 @@ class TransactionAdapter(@NonNull context: Context, @LayoutRes resource: Int, @N
         val currentItem = getItem(position)!!
 
         secondParty.text = currentItem.secondParty
-        amount.text =  Util.formatMoney(currentItem.amount)
+        amount.text =  Util.formatMoney(currentItem.amount, withSymbol = true)
         title.text = currentItem.title
         category.text = currentItem.category.name
         date.text = Util.formatDate(currentItem.date)
