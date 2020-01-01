@@ -49,37 +49,24 @@ class CategoryActivity : AppCompatActivity() {
         category_list.setOnItemLongClickListener(this::showCategoryMenu)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        fab.setOnClickListener { addCategory() }
+    }
+
+    private fun addCategory() {
+        val cdf = CategoryDialogFragment()
+        cdf.registerCategoryDialogCallbacks(object : CategoryDialogFragment.CategoryDialogCallbacks {
+            override fun dataSaved(category: Category) {
+                reloadCategories()
+            }
+        })
+        cdf.show(supportFragmentManager, "acdf")
     }
 
     private fun reloadCategories() {
         existingCategoriesAdapter.clear()
-        existingCategoriesAdapter.addAll(dbInstance.getCategories())
+        existingCategoriesAdapter.addAll(dbInstance.getCategories(alwaysSortAlphabetically = true))
         existingCategoriesAdapter.notifyDataSetChanged()
-    }
-
-    fun addNewCategory(view: View) {
-        if (view == category_new_add) {
-            if (category_new_name.text.toString().isEmpty()) {
-                Toast.makeText(this, resources.getString(R.string.catmgmt_enter_name), Toast.LENGTH_LONG).show()
-            } else if (!category_new_direction_in.isChecked && !category_new_direction_out.isChecked) {
-                Toast.makeText(this, resources.getString(R.string.catmgmt_choose_direction), Toast.LENGTH_LONG).show()
-            } else {
-                // all valid, persist
-                val name = category_new_name.text.toString()
-                val direction = if (category_new_direction_in.isChecked) Category.INCOMING else Category.OUTGOING
-                if (dbInstance.insertOrUpdate(Category(name, direction)) != FinanceOrgaToolDB.INSERT_ERROR.toLong()) { // only insert possible here
-                    // restore old input state
-                    category_new_name.setText("")
-                    category_direction_radiogroup.clearCheck()
-
-                    // reload categories and notify user
-                    reloadCategories()
-                    Toast.makeText(this, resources.getString(R.string.catmgmt_category_added), Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, resources.getString(R.string.catmgmt_add_failed), Toast.LENGTH_LONG).show()
-                }
-            }
-        }
     }
 
 

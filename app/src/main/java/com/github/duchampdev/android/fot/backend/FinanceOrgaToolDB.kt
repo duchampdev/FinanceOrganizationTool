@@ -159,11 +159,11 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
                 .also { refreshCategoriesCache() }
     }
 
-    fun getCategories(): List<Category> {
+    fun getCategories(alwaysSortAlphabetically: Boolean = false): List<Category> {
         openDB() // ensure db != null
         val categories: MutableList<Category> = ArrayList(categoriesCache.values)
         val orderLRU = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean(context.getString(R.string.pref_key_categoryorder), false)
+                .getBoolean(context.getString(R.string.pref_key_categoryorder), false) && !alwaysSortAlphabetically
         return if (orderLRU) {
             categories.sortedBy(Category::lastUsed).reversed()
         } else {
@@ -172,8 +172,11 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
         }
     }
 
+    /**
+     * get category by plain name or name with appended direction (i.e. result of Category's toString method
+     */
     fun getCategoryForName(name: String): Category? {
-        return categoriesCache.values.find { c -> c.toString() == name }
+        return categoriesCache.values.find { c -> c.toString() == name } ?: categoriesCache.values.find { c -> c.name == name }
     }
 
     private fun refreshCategoriesCache() {

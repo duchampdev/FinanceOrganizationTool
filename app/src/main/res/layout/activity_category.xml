@@ -16,15 +16,14 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:padding="5dp"
         tools:context="com.github.duchampdev.android.fot.frontend.CategoryActivity">
-
 
 
     <ListView
@@ -32,73 +31,19 @@
             android:scrollbarStyle="outsideInset"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
             android:clickable="false"
-            android:longClickable="true" />
+            android:longClickable="true"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/baseline_add_24"
+            android:foregroundTint="@android:color/white"
+            android:tint="@android:color/white"
+            app:fabSize="mini"/>
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:orientation="vertical">
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/catmgmt_add_category"
-                android:textSize="24sp"/>
-
-        <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:orientation="vertical"
-                android:rowCount="3">
-
-            <TextView android:text="@string/catmgmt_label_name"/>
-            <TextView android:text="@string/catmgmt_label_direction"/>
-
-            <Button
-                android:id="@+id/category_new_add"
-                android:layout_columnSpan="2"
-                android:layout_width="match_parent"
-                android:onClick="addNewCategory"
-                android:text="@string/catmgmt_save_category"/>
-
-            <EditText
-                android:id="@+id/category_new_name"
-                android:hint="@string/catmgmt_hint_name"
-                android:inputType="text"
-                android:layout_gravity="fill_horizontal"/>
-
-            <RadioGroup
-                android:id="@+id/category_direction_radiogroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="fill_horizontal"
-                android:orientation="horizontal">
-
-                <RadioButton
-                        android:id="@+id/category_new_direction_in"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/income" />
-
-                <RadioButton
-                        android:id="@+id/category_new_direction_out"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/expense" />
-
-            </RadioGroup>
-        </GridLayout>
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>
