@@ -29,6 +29,7 @@ import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.CategorySumItem
+import com.github.duchampdev.android.fot.extensions.getColorForThemeForAttr
 import com.github.duchampdev.android.fot.frontend.adapters.CategorySumAdapter
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
 import com.github.duchampdev.android.fot.util.DateButton
@@ -222,7 +223,7 @@ class StatsFragment: Fragment() {
         stats_sum_total.setText(Util.formatMoney(sumIncoming - sumOutgoing))
 
         val colorAttr = if(sumIncoming - sumOutgoing < 0) R.attr.fot_red else R.attr.fot_green
-        stats_sum_total.setTextColor(Util.getColorForThemeFromAttr(context!!, colorAttr))
+        stats_sum_total.setTextColor(context!!.getColorForThemeForAttr(colorAttr))
     }
 
 }

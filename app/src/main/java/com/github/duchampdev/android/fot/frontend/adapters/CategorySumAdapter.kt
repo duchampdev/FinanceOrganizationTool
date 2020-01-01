@@ -27,6 +27,7 @@ import androidx.annotation.LayoutRes
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.CategorySumItem
+import com.github.duchampdev.android.fot.extensions.getColorForThemeForAttr
 import com.github.duchampdev.android.fot.util.Util
 
 class CategorySumAdapter(context: Context, @LayoutRes resource: Int, items: List<CategorySumItem>): ArrayAdapter<CategorySumItem>(context, resource, items) {
@@ -42,10 +43,10 @@ class CategorySumAdapter(context: Context, @LayoutRes resource: Int, items: List
         sumView.text = Util.formatMoney(currentItem.sum, withSymbol = true)
 
         val color = when(currentItem.sum) {
-            0f.toDouble() -> context.resources.getColor(android.R.color.secondary_text_light_nodisable, null)
+            0.0 -> context.resources.getColor(android.R.color.secondary_text_light_nodisable, null)
             else -> when(currentItem.category.direction) {
-                Category.INCOMING -> Util.getColorForThemeFromAttr(context, R.attr.fot_green)
-                Category.OUTGOING -> Util.getColorForThemeFromAttr(context, R.attr.fot_red)
+                Category.INCOMING -> context.getColorForThemeForAttr(R.attr.fot_green)
+                Category.OUTGOING -> context.getColorForThemeForAttr(R.attr.fot_red)
                 else -> -1 // does never occur
             }
         }

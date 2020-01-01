@@ -28,6 +28,7 @@ import androidx.annotation.NonNull
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.TransactionItem
+import com.github.duchampdev.android.fot.extensions.getColorForThemeForAttr
 import com.github.duchampdev.android.fot.util.Util
 
 class TransactionAdapter(@NonNull context: Context, @LayoutRes resource: Int, @NonNull objects: List<TransactionItem>) : ArrayAdapter<TransactionItem>(context, resource, objects) {
@@ -50,8 +51,8 @@ class TransactionAdapter(@NonNull context: Context, @LayoutRes resource: Int, @N
         date.text = Util.formatDate(currentItem.date)
 
         val amountColor = when(currentItem.category.direction) {
-            Category.OUTGOING -> Util.getColorForThemeFromAttr(context, R.attr.fot_red)
-            Category.INCOMING -> Util.getColorForThemeFromAttr(context, R.attr.fot_green)
+            Category.OUTGOING -> context.getColorForThemeForAttr(R.attr.fot_red)
+            Category.INCOMING -> context.getColorForThemeForAttr(R.attr.fot_green)
             else -> -1 // error
         }
         amount.setTextColor(amountColor)

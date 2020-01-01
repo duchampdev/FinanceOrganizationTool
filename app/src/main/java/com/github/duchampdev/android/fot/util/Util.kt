@@ -52,13 +52,6 @@ class Util {
         fun formatDate(cal: Calendar): String {
             return formatDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
         }
-        
-        fun getColorForThemeFromAttr(context: Context, attr: Int): Int {
-            val resVal = TypedValue()
-            val wasResolved = context.theme.resolveAttribute(attr, resVal, true)
-            return if(wasResolved && resVal.resourceId != 0) context.getColor(resVal.resourceId)
-            else android.R.color.darker_gray // fallback
-        }
 
         fun getStatsDiagramColors(count: Int): IntArray {
             if(count == 0) return IntArray(0)
