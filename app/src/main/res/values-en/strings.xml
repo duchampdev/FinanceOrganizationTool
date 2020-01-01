@@ -62,7 +62,6 @@
     <string name="no">no</string>
 
     <string name="save">save</string>
-    <string name="abort">cancel</string>
     <string name="edit">edit</string>
     <string name="rename">rename</string>
     <string name="delete">delete</string>
@@ -89,9 +88,6 @@
     <string name="catmgmt_really_delete_explanation">Also dependent transactions will be deleted permanently!</string>
     <string name="catmgmt_category_deleted">category deleted</string>
     <string name="catmgmt_add_category">add category</string>
-    <string name="catmgmt_save_category">save category</string>
-    <string name="catmgmt_label_name">name:</string>
-    <string name="catmgmt_label_direction">direction:</string>
     <string name="catmgmt_hint_name">name for the category</string>
 
     <!-- dashboard -->
@@ -118,7 +114,6 @@
     <string name="tdialog_label_category">category</string>
 
     <!-- settings -->
-    <string name="settings_header_general">General</string>
     <string name="settings_catorder_title">category order</string>
     <string name="settings_catorder_summary_on">sort categories by last usage</string>
     <string name="settings_catorder_summary_off">sort categories by alphabet</string>

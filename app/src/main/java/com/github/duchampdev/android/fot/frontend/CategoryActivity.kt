@@ -77,7 +77,7 @@ class CategoryActivity : AppCompatActivity() {
         val selectedCategory = existingCategoriesAdapter.getItem(position)!!
         MaterialAlertDialogBuilder(this)
                 .setTitle(selectedCategory.name)
-                .setNeutralButton(resources.getString(R.string.abort), null)
+                .setNeutralButton(resources.getString(android.R.string.cancel), null)
                 .setPositiveButton(resources.getString(R.string.rename)) { _, _ -> renameCategory(selectedCategory) }
                 .setNegativeButton(resources.getString(R.string.delete)) { _, _ -> removeCategory(selectedCategory) }
                 .create().show()
@@ -103,7 +103,7 @@ class CategoryActivity : AppCompatActivity() {
                         Toast.makeText(this, resources.getString(R.string.catmgmt_category_renamed), Toast.LENGTH_LONG).show()
                     }
                 }
-                .setNegativeButton(resources.getString(R.string.abort), null)
+                .setNegativeButton(resources.getString(android.R.string.cancel), null)
                 .create().show()
     }
 

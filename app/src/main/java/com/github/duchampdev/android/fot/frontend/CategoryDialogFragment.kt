@@ -41,7 +41,7 @@ class CategoryDialogFragment: DialogFragment() {
         return MaterialAlertDialogBuilder(activity)
                 .setTitle(dialogTitle)
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ -> saveCategory() }
-                .setNeutralButton(resources.getString(R.string.abort)) { _, _ -> }
+                .setNeutralButton(resources.getString(android.R.string.cancel)) { _, _ -> }
                 .setView(view)
                 .create()
     }

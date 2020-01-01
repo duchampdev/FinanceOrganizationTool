@@ -65,7 +65,6 @@
     <string name="no">Nein</string>
 
     <string name="save">Speichern</string>
-    <string name="abort">Abbrechen</string>
     <string name="edit">Bearbeiten</string>
     <string name="rename">Umbenennen</string>
     <string name="delete">Löschen</string>
@@ -92,9 +91,6 @@
     <string name="catmgmt_really_delete_explanation">Auch alle zugehörigen Transaktionen werden unwiderruflich gelöscht!</string>
     <string name="catmgmt_category_deleted">Kategorie gelöscht</string>
     <string name="catmgmt_add_category">Kategorie hinzufügen</string>
-    <string name="catmgmt_save_category">Kategorie speichern</string>
-    <string name="catmgmt_label_name">Name:</string>
-    <string name="catmgmt_label_direction">Richtung:</string>
     <string name="catmgmt_hint_name">Name der Kategorie</string>
 
     <!-- dashboard -->
@@ -122,7 +118,6 @@
     <string name="tdialog_currency_symbol">\u20ac</string>
 
     <!-- settings -->
-    <string name="settings_header_general">Allgemein</string>
     <string name="settings_catorder_title">Kategoriesortierung</string>
     <string name="settings_catorder_summary_on">Kategorien nach letzter Nutzung sortieren</string>
     <string name="settings_catorder_summary_off">Kategorien alphabetisch sortieren</string>

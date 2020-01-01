@@ -142,7 +142,7 @@ class DashboardFragment: Fragment() {
                                 .setActionTextColor(resources.getColor(R.color.colorCreme, context!!.theme))
                                 .show()
                     }
-                    .setNeutralButton(resources.getString(R.string.abort)) { _, _ ->  }
+                    .setNeutralButton(resources.getString(android.R.string.cancel)) { _, _ ->  }
                     .create().show()
             return@OnItemLongClickListener true
         }

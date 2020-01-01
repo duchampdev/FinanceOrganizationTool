@@ -54,7 +54,7 @@ class TransactionDialogFragment: DialogFragment() {
         return MaterialAlertDialogBuilder(activity)
                 .setTitle(dialogTitle)
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ -> saveTransaction() } // callback implemented later
-                .setNeutralButton(resources.getString(R.string.abort)) { _, _ -> } // callback implemented later
+                .setNeutralButton(resources.getString(android.R.string.cancel)) { _, _ -> } // callback implemented later
                 .setView(view)
                 .create()
                 .also { onViewCreated(view, savedInstanceState) }
