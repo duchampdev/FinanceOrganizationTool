@@ -23,13 +23,13 @@ import android.preference.PreferenceManager
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
@@ -102,7 +102,7 @@ class MainActivity: AppCompatActivity() {
                 true
             }
             R.id.main_legal -> {
-                AlertDialog.Builder(this)
+                MaterialAlertDialogBuilder(this)
                         .setTitle(resources.getString(R.string.licenses))
                         .setMessage(Html.fromHtml(resources.getString(R.string.license_text_mpandroidchart), Html.FROM_HTML_MODE_LEGACY))
                         .setPositiveButton(resources.getString(R.string.close)) { _, _ -> }
@@ -111,7 +111,7 @@ class MainActivity: AppCompatActivity() {
                 true
             }
             R.id.main_about -> {
-                AlertDialog.Builder(this)
+                MaterialAlertDialogBuilder(this)
                         .setTitle(resources.getString(R.string.about))
                         .setMessage(Html.fromHtml(resources.getString(R.string.license_text_app), Html.FROM_HTML_MODE_LEGACY))
                         .setPositiveButton(resources.getString(R.string.close)) { _, _ -> }
@@ -120,7 +120,7 @@ class MainActivity: AppCompatActivity() {
                 true
             }
             R.id.main_dataprotection -> {
-                AlertDialog.Builder(this)
+                MaterialAlertDialogBuilder(this)
                         .setTitle(resources.getString(R.string.dataprotection))
                         .setMessage(Html.fromHtml(resources.getString(R.string.dataprotection_content), Html.FROM_HTML_MODE_LEGACY))
                         .setPositiveButton(resources.getString(R.string.close)) { _, _ -> }

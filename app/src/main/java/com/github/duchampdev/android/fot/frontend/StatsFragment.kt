@@ -17,7 +17,6 @@
 
 package com.github.duchampdev.android.fot.frontend
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -30,7 +29,6 @@ import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.CategorySumItem
-import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.frontend.adapters.CategorySumAdapter
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
 import com.github.duchampdev.android.fot.util.DateButton
@@ -106,7 +104,7 @@ class StatsFragment: Fragment() {
     private fun showCategoryTransactionsDialog(category: Category) {
         val transactions = dbInstance.fetchTransactionsBetweenForCategory(fromDate, untilDate, category)
 
-        AlertDialog.Builder(context!!)
+       MaterialAlertDialogBuilder(context!!)
                 .setTitle(category.name)
                 .setAdapter(TransactionAdapter(context!!, R.layout.transaction_item, transactions), null)
                 .setNegativeButton(resources.getString(R.string.close)) { _, _ -> }

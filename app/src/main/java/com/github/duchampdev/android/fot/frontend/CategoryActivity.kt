@@ -18,7 +18,6 @@
 package com.github.duchampdev.android.fot.frontend
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +28,7 @@ import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.frontend.adapters.CategoryAdapter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_category.*
 
 class CategoryActivity : AppCompatActivity() {
@@ -75,7 +75,7 @@ class CategoryActivity : AppCompatActivity() {
      */
     private fun showCategoryMenu(parent: AdapterView<*>, view: View, position: Int, id: Long): Boolean {
         val selectedCategory = existingCategoriesAdapter.getItem(position)!!
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
                 .setTitle(selectedCategory.name)
                 .setNeutralButton(resources.getString(R.string.abort), null)
                 .setPositiveButton(resources.getString(R.string.rename)) { _, _ -> renameCategory(selectedCategory) }
@@ -90,7 +90,7 @@ class CategoryActivity : AppCompatActivity() {
         val categoryName = renameDialogView.findViewById<EditText>(R.id.category_edit_name)
         categoryName.setText(category.name)
 
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
                 .setView(renameDialogView)
                 .setTitle(resources.getString(R.string.catmgmt_rename_category))
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ ->
@@ -108,7 +108,7 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     private fun removeCategory(category: Category) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
                 .setTitle(resources.getString(R.string.catmgmt_really_delete))
                 .setMessage(resources.getString(R.string.catmgmt_really_delete_explanation))
                 .setPositiveButton(resources.getString(R.string.yes)) { _, _ ->

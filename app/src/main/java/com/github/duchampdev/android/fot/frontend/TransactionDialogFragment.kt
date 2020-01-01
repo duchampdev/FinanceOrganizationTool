@@ -17,14 +17,13 @@
 
 package com.github.duchampdev.android.fot.frontend
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
@@ -33,6 +32,7 @@ import com.github.duchampdev.android.fot.bdo.Category
 import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.util.NoFilterArrayAdapter
 import com.github.duchampdev.android.fot.util.Util
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.dialog_transaction.*
 import kotlinx.android.synthetic.main.dialog_transaction.view.*
 
@@ -51,7 +51,7 @@ class TransactionDialogFragment: DialogFragment() {
         
         val view = activity!!.layoutInflater.inflate(R.layout.dialog_transaction, null)
         
-        return AlertDialog.Builder(activity)
+        return MaterialAlertDialogBuilder(activity)
                 .setTitle(dialogTitle)
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ -> saveTransaction() } // callback implemented later
                 .setNeutralButton(resources.getString(R.string.abort)) { _, _ -> } // callback implemented later

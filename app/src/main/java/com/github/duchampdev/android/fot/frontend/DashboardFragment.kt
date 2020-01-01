@@ -17,7 +17,6 @@
 
 package com.github.duchampdev.android.fot.frontend
 
-import android.app.AlertDialog
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.fragment.app.Fragment
@@ -25,7 +24,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.github.duchampdev.android.fot.bdo.TransactionItem
