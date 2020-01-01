@@ -24,6 +24,6 @@
 
     <color name="colorNightGreen">#64dd17</color>
     <color name="colorNightRed">#e40000</color>
-    <color name="colorNightPrimary">#90A1F9</color>
-    <color name="colorNightAccent">#FFE082</color>
+    <color name="colorNightPrimary">#ff95A5C6</color>
+    <color name="colorNightAccent">#ff95a5c6</color>
 </resources>
