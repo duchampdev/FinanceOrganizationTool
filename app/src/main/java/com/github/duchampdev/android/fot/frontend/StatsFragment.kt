@@ -148,7 +148,7 @@ class StatsFragment: Fragment() {
             Category.OUTGOING -> outValues
             else -> throw IllegalArgumentException()
         }
-        var fullSum = rawData.sumByDouble { csi -> csi.sum }
+        val fullSum = rawData.sumByDouble { csi -> csi.sum }
 
         rawData.filter { csi -> csi.sum > 0 }
                 .forEach { csi -> entries.add(PieEntry((csi.sum / fullSum * 100.0).toFloat(), csi.category.name)) }

@@ -20,11 +20,8 @@ package com.github.duchampdev.android.fot.util
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import android.util.AttributeSet
 import android.view.View
-import android.widget.Button
 import com.google.android.material.button.MaterialButton
 import java.util.*
 import kotlin.collections.ArrayList

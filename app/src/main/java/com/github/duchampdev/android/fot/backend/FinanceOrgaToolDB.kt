@@ -37,17 +37,17 @@ import kotlin.math.min
 class FinanceOrgaToolDB private constructor(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private val DATABASE_VERSION = 5
-        private val DATABASE_NAME = "fot-transactions.db"
+        private const val DATABASE_VERSION = 5
+        private const val DATABASE_NAME = "fot-transactions.db"
 
-        private val TABLE_TRANSACTIONS = "transactions"
-        private val TABLE_CATEGORIES = "categories"
-        private val TABLE_SECONDPARTY_INDEX = "secondpartyindex"
+        private const val TABLE_TRANSACTIONS = "transactions"
+        private const val TABLE_CATEGORIES = "categories"
+        private const val TABLE_SECONDPARTY_INDEX = "secondpartyindex"
 
-        val INSERT_ERROR = -1
-        val UPDATE_SUCCESS = 1
+        const val INSERT_ERROR = -1
+        const val UPDATE_SUCCESS = 1
 
-        private val CREATE_TABLE_TRANSACTIONS = "CREATE TABLE IF NOT EXISTS transactions (" +
+        private const val CREATE_TABLE_TRANSACTIONS = "CREATE TABLE IF NOT EXISTS transactions (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "secondparty TEXT, " +
                 "amount DECIMAL(7,2), " +
@@ -56,19 +56,19 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
                 "date INTEGER, FOREIGN KEY (category) REFERENCES categories(id)" +
                 ");"
 
-        private val CREATE_TABLE_CATEGORIES = "CREATE TABLE IF NOT EXISTS categories (" +
+        private const val CREATE_TABLE_CATEGORIES = "CREATE TABLE IF NOT EXISTS categories (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, " +
                 "direction INTEGER, " +
                 "lastused INTEGER" +
                 ");"
 
-        private val CREATE_TABLE_SECONDPARTYINDEX = "CREATE TABLE IF NOT EXISTS secondpartyindex ( " +
+        private const val CREATE_TABLE_SECONDPARTYINDEX = "CREATE TABLE IF NOT EXISTS secondpartyindex ( " +
                 "name TEXT PRIMARY KEY," +
                 "count INTEGER" +
                 ");"
 
-        private val CREATE_INDEX_SECONDPARTYINDEX = "CREATE INDEX spindex_occurances_index " +
+        private const val CREATE_INDEX_SECONDPARTYINDEX = "CREATE INDEX spindex_occurances_index " +
                 "ON " + TABLE_SECONDPARTY_INDEX + " " +
                 "(count DESC, name ASC)" // use index for performance when sorting
 
@@ -419,16 +419,17 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
                     db.insert(TABLE_TRANSACTIONS, null, cv)
                     cv.clear()
                 }
+                c.close()
 
                 // clean up
                 db.execSQL("DROP TABLE transacttmp")
 
                 db.setTransactionSuccessful()
             } catch (e: Exception) {
-                logger.log(Level.SEVERE, "Error while upgrading DB!");
-                e.printStackTrace();
+                logger.log(Level.SEVERE, "Error while upgrading DB!")
+                e.printStackTrace()
             } finally {
-                db.endTransaction();
+                db.endTransaction()
             }
         }
         if (oldVersion < 4) {

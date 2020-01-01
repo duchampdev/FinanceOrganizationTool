@@ -39,7 +39,7 @@ class CategoryAdapter(@NonNull context: Context, @LayoutRes resource: Int, @NonN
     override fun getView(position: Int, @Nullable convertView: View?, @NonNull parent: ViewGroup): View {
         val itemView = convertView ?: (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.category_item, parent, false)
 
-        val currentItem = items.get(position)
+        val currentItem = items[position]
         val isIncoming = currentItem.direction == Category.INCOMING
 
         val name: TextView = itemView.findViewById(R.id.category_name)

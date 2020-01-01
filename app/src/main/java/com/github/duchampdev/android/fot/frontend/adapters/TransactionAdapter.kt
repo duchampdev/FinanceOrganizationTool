@@ -32,8 +32,6 @@ import com.github.duchampdev.android.fot.util.Util
 
 class TransactionAdapter(@NonNull context: Context, @LayoutRes resource: Int, @NonNull objects: List<TransactionItem>) : ArrayAdapter<TransactionItem>(context, resource, objects) {
 
-    private val items: List<TransactionItem> = objects
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val itemView = convertView ?: (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.transaction_item, parent, false)
 

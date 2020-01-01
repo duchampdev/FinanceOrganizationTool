@@ -42,7 +42,7 @@ class SecondpartyAutocompleteService private constructor(context: Context) {
     }
 
 
-    fun setupDbCallbacks() {
+    private fun setupDbCallbacks() {
         dbInstance.registerDbFinTransactionEventCallbacks(object : FinanceOrgaToolDB.DbFinTransactionEventCallbacks {
             override fun transactionInserted(transactionItem: TransactionItem) {
                 addUsage(transactionItem.secondParty)
