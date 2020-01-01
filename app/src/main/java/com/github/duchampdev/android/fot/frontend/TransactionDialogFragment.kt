@@ -57,7 +57,7 @@ class TransactionDialogFragment: DialogFragment() {
                 .setNeutralButton(resources.getString(R.string.abort)) { _, _ -> } // callback implemented later
                 .setView(view)
                 .create()
-                .also { ad -> onViewCreated(view, savedInstanceState) }
+                .also { onViewCreated(view, savedInstanceState) }
     }
 
 

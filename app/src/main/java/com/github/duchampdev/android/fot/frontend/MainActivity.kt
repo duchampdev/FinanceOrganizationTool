@@ -19,13 +19,13 @@ package com.github.duchampdev.android.fot.frontend
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.github.duchampdev.android.fot.R
 import com.github.duchampdev.android.fot.backend.FinanceOrgaToolDB
 import com.google.android.material.bottomnavigation.BottomNavigationView
