@@ -48,6 +48,7 @@
             android:layout_weight="1"
             android:hint="@string/tdialog_label_amount"
             app:prefixText="@string/tdialog_currency_symbol"
+            app:prefixTextAppearance="@style/TextAppearance.AppCompat.Medium"
             android:paddingVertical="@dimen/input_padding_vertical"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <com.google.android.material.textfield.TextInputEditText
