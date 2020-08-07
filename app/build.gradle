@@ -28,6 +28,8 @@ android {
         targetSdkVersion 29
         versionCode 30
         versionName "3.0.1"
+
+        resConfigs "de", "en"
     }
     buildTypes {
         release {
