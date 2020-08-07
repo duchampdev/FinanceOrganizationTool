@@ -34,7 +34,7 @@
         android:layout_weight="1"
         android:paddingVertical="@dimen/input_padding_vertical"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <com.google.android.material.textview.MaterialAutoCompleteTextView
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/dashboard_month"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:paddingVertical="@dimen/input_padding_vertical"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <com.google.android.material.textview.MaterialAutoCompleteTextView
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/dashboard_year"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

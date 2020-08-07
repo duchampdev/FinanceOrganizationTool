@@ -51,7 +51,7 @@ class TransactionDialogFragment: DialogFragment() {
         
         val view = activity!!.layoutInflater.inflate(R.layout.dialog_transaction, null)
         
-        return MaterialAlertDialogBuilder(activity)
+        return MaterialAlertDialogBuilder(context!!)
                 .setTitle(dialogTitle)
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ -> saveTransaction() } // callback implemented later
                 .setNeutralButton(resources.getString(android.R.string.cancel)) { _, _ -> } // callback implemented later

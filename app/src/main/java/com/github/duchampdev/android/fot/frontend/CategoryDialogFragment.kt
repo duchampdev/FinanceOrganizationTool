@@ -38,7 +38,7 @@ class CategoryDialogFragment: DialogFragment() {
         val dialogTitle = resources.getString(R.string.catmgmt_add_category)
         val view = activity!!.layoutInflater.inflate(R.layout.dialog_category, null)
 
-        return MaterialAlertDialogBuilder(activity)
+        return MaterialAlertDialogBuilder(context!!)
                 .setTitle(dialogTitle)
                 .setPositiveButton(resources.getString(R.string.save)) { _, _ -> saveCategory() }
                 .setNeutralButton(resources.getString(android.R.string.cancel)) { _, _ -> }

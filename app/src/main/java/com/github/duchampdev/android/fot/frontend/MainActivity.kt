@@ -19,6 +19,7 @@ package com.github.duchampdev.android.fot.frontend
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.LocaleList
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
@@ -62,6 +63,7 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         fab.setOnClickListener {
             if (activeFragment is DashboardFragment) (activeFragment as DashboardFragment).addNewTransaction()
         }
@@ -95,8 +97,8 @@ class MainActivity: AppCompatActivity() {
         super.onStop()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
             R.id.main_catman -> {
                 startActivity(Intent(this, CategoryActivity::class.java))
                 true

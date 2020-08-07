@@ -30,6 +30,7 @@ import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
 import com.github.duchampdev.android.fot.util.NoFilterArrayAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.io.Serializable
 import java.util.*
@@ -115,7 +116,7 @@ class DashboardFragment: Fragment() {
 
         view.dashboard_positions.onItemLongClickListener = AdapterView.OnItemLongClickListener { _, _, position, _ ->
             val transaction = transactionAdapter.getItem(position)!!
-            MaterialAlertDialogBuilder(context)
+            MaterialAlertDialogBuilder(context!!)
                     .setTitle(resources.getString(R.string.dashboard_transaction_menu))
                     .setPositiveButton(resources.getString(R.string.edit)) { _, _ ->
                         val tdf = TransactionDialogFragment()
