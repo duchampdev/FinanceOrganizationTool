@@ -30,7 +30,6 @@ import com.github.duchampdev.android.fot.bdo.TransactionItem
 import com.github.duchampdev.android.fot.frontend.adapters.TransactionAdapter
 import com.github.duchampdev.android.fot.util.NoFilterArrayAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import java.io.Serializable
 import java.util.*
@@ -67,7 +66,7 @@ class DashboardFragment: Fragment() {
 
         val monthAdapter = NoFilterArrayAdapter<String>(view.context, android.R.layout.simple_spinner_dropdown_item, arrayListOf(*context!!.resources.getStringArray(R.array.months)))
                 .also { mA -> mA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-        val yearAdapter = NoFilterArrayAdapter<String>(view.context, android.R.layout.simple_spinner_dropdown_item, arrayListOf(*years))
+        val yearAdapter = NoFilterArrayAdapter(view.context, android.R.layout.simple_spinner_dropdown_item, arrayListOf(*years))
                 .also { yA -> yA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
 
         view.dashboard_month.setAdapter(monthAdapter)

@@ -130,13 +130,13 @@ class FinanceOrgaToolDB private constructor(private val context: Context) : SQLi
         cv.put("category", transactionItem.category.id)
         cv.put("date", transactionItem.date.time)
 
-        if (transactionItem.id == TransactionItem.NOID) {
+        return if (transactionItem.id == TransactionItem.NOID) {
             listeners.forEach { l -> l.transactionInserted(transactionItem) }
-            return db!!.insertOrThrow(TABLE_TRANSACTIONS, null, cv)
+            db!!.insertOrThrow(TABLE_TRANSACTIONS, null, cv)
         } else {
             val itemOld = fetchTransactionById(transactionItem.id)
             listeners.forEach { l -> l.transactionUpdated(transactionItem, itemOld) }
-            return db!!.update(TABLE_TRANSACTIONS, cv, "id=?", arrayOf(transactionItem.id.toString())).toLong()
+            db!!.update(TABLE_TRANSACTIONS, cv, "id=?", arrayOf(transactionItem.id.toString())).toLong()
         }
     }
 
