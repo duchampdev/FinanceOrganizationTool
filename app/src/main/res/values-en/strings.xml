@@ -46,7 +46,7 @@
     </string>
     <string name="dataprotection_content">
         <![CDATA[
-        <b>FinanceOrganizationTool</b> collects, stores and processes only the data entered by you. These are stored and processed only locally on your device. No data is transmitted via the internet, which can easily be verified by the not requested internet permission. The data is stored in the app\'s data directory, which is usually not readable by other apps including file browser. One exception are so called "rooted" devices: In these, other apps or a debugging interface on the computer can be granted access to app data. Responsibility is not assumed for the protection of your data against unauthorized access, e. g. by so called soulder surfing, error in the operating system or via a "rooted" device.
+        <b>FinanceOrganizationTool</b> collects, stores and processes only the data entered by you. These are stored and processed only locally on your device. No data is transmitted via the internet, which can easily be verified by the not requested internet permission. The data is stored in the app\'s data directory, which is usually not readable by other apps including file browser. One exception are so called "rooted" devices: In these, other apps or a debugging interface on the computer can be granted access to app data. Responsibility is not assumed for the protection of your data against unauthorized access, e. g. by so called shoulder surfing, error in the operating system or via a "rooted" device.
         ]]>
     </string>
 
